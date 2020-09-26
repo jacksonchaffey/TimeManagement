@@ -20,4 +20,26 @@ class Login
 
     end
 
+    def menu_screen
+
+        choice = false
+
+        while !choice
+            puts "Hello #{@username}\n"
+            puts "1.Productivity tracker"
+            
+            choice = gets.chomp.downcase
+
+            if choice == "1" || choice == "productivity"
+                puts "Be productive"
+                choice = true
+            else
+                puts "Please choose an option from the list."
+            end
+        end
+    end
+
 end
+
+user = Login.new (@username)
+user.menu_screen

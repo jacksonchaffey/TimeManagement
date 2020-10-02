@@ -124,9 +124,12 @@ class Login
     def diary_log
 
         puts ("\nWelcome to your personal diary space. \nWould you like to view past dairies or write a new one?
-        \n 1. View old entry  \n 2. Write a new entry \n 3. Back to main menu. ")
+        \n 1. Write new entry  \n 2. View old entries \n 3. Back to main menu. ")
 
         diary_choice = gets.chomp
+        
+      
+        
         if (diary_choice =="1")
             puts("Begin your diary entry..\n")
             new_entry = gets.chomp()
@@ -138,21 +141,34 @@ class Login
             puts "\n Entry successful."
             sleep(1)
             system("clear")
-        elsif(diary_choice == "2")
-            if(entries == [])
-                system("clear")
-                puts "\n There are no previous entries."
-            else
-                system("clear")
 
-                i = 0
-                while i < @logs.length
-                    puts "#{logs[i]}\n\n\n\n"
-                end
-                
-            end
-            
+        elsif(diary_choice == "2")
+                if(logs == [])
+                    system("clear")
+                    puts "\n There are no previous entries."
+                else
+                     system("clear")
+    
+                    i = 0
+                    while i < @logs.length
+                        puts "#{logs[i]}\n\n\n\n"
+                        i+=1
+                    end
+                 end
+
+        elsif(diary_choice == "3")
+            menu_screen
+       
+        else
+            puts "Please choose an option from the list"
+            sleep(1)
+        end
+        
+        sleep(1)
+        diary_log
     end
+
+
 end 
 
 user = Login.new (@username)

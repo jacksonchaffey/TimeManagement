@@ -90,6 +90,8 @@ class Login
 
     end
 
+    #BROKEN PRODUCTIVITY CHECKER 
+
     # def productivity_checker(time)
 
     #     if time[-1] < time[-2]
@@ -104,7 +106,8 @@ class Login
     #         menu_screen
     #     end
     # end
-   
+    #
+
     def random_hint
 
         random = Random.new

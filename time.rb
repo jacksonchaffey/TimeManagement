@@ -13,7 +13,7 @@ class Login
 
         @productivity_rating = []
 
-        @focus_tips =  []
+        @focus_tips =  ['a', 'b', 'c']
 
         @logs = []
 
@@ -29,6 +29,7 @@ class Login
             puts "1.Productivity tracker\n"
             puts "2.Helpful hints\n"
             puts "3.Exit Program\n"
+            puts @productivity_rating
             
             choice = gets.chomp.downcase
 
@@ -43,7 +44,7 @@ class Login
                 "Thanks for dropping by!"
                 exit
             else
-                puts "Please choose an option from the list."
+                puts "Please choose a valid option from the list."
             end
         end
     end
@@ -64,7 +65,7 @@ class Login
                 puts "Good luck today!"
                 sleep (1)
 
-            elsif time>16
+            elsif time>=16
                 system("clear")
                 puts "\n\n We reccomend an average of 8 hours of sleep to ensure maximum productivity.\n Please reconsider how much time you want to spend being productive today."
                 sleep (2)
@@ -81,14 +82,38 @@ class Login
 
             elsif @productivity_rating.length > 1
                 productivity_checker
+                menu_screen
              end
-        end
+        end  
 
-
-        
+       
 
     end
-        
+
+    # def productivity_checker(time)
+
+    #     if time[-1] < time[-2]
+    #         puts "Not quite what you wanted to achieve today but thats ok!"
+    #         puts "\n\n#{focus_tips[random.rand(1..@focus_tips.length)]}"
+    #         menu_screen
+    #     elsif time[-1] == time[-2]
+    #         puts "Well Done!"
+    #         menu_screen
+    #     else 
+    #         puts "Test3"
+    #         menu_screen
+    #     end
+    # end
+   
+    def random_hint
+
+        random = Random.new
+
+        puts "\n#{focus_tips[random.rand(1..@focus_tips.length)]}"
+        sleep(2)
+        system("clear")
+        menu_screen
+    end
 end 
 
 user = Login.new (@username)

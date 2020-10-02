@@ -28,8 +28,8 @@ class Login
             puts "Hello #{@username}. Welcome to productively, please pick from the list below to begin.\n"
             puts "1.Productivity tracker\n"
             puts "2.Helpful hints\n"
-            puts "3.Exit Program\n"
-            puts @productivity_rating
+            puts "3.Diary"
+            puts "4.Exit Program\n"
             
             choice = gets.chomp.downcase
 
@@ -40,7 +40,10 @@ class Login
             elsif choice == "2" || choice == "help"
                 helpful_hints
                 choice = true
-            elsif choice == "3" || choice == "exit"
+            elsif choice == "3" || choice == "diary"
+                diary_log
+                choice = true    
+            elsif choice == "4" || choice == "exit"
                 "Thanks for dropping by!"
                 exit
             else
@@ -116,6 +119,39 @@ class Login
         sleep(2)
         system("clear")
         menu_screen
+    end
+
+    def diary_log
+
+        puts ("\nWelcome to your personal diary space. \nWould you like to view past dairies or write a new one?
+        \n 1. View old entry  \n 2. Write a new entry \n 3. Back to main menu. ")
+
+        diary_choice = gets.chomp
+        if (diary_choice =="1")
+            puts("Begin your diary entry..\n")
+            new_entry = gets.chomp()
+            timestamp = Time.now
+
+            new_entry = timestamp.to_s + " " + new_entry
+
+            @logs.push(new_entry)
+            puts "\n Entry successful."
+            sleep(1)
+            system("clear")
+        elsif(diary_choice == "2")
+            if(entries == [])
+                system("clear")
+                puts "\n There are no previous entries."
+            else
+                system("clear")
+
+                i = 0
+                while i < @logs.length
+                    puts "#{logs[i]}\n\n\n\n"
+                end
+                
+            end
+            
     end
 end 
 

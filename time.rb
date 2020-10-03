@@ -157,6 +157,7 @@ class Login
                  end
 
         elsif(diary_choice == "3")
+            system("clear")
             menu_screen
        
         else
@@ -164,12 +165,45 @@ class Login
             sleep(1)
         end
         
-        sleep(1)
+        sleep(0.5)
         diary_log
     end
 
+    
 
 end 
 
+def login_check
+
+    profiles = 
+    {
+    :jackson => "jackson123",
+    :admin => "admin123"
+    }
+
+entry = false
+while (!entry)
+    puts ( "Hello! Please enter your username")
+        id = gets.chomp
+    puts ( "Please enter your password")
+        pw = gets.chomp
+    
+        if (id == "jackson" && profiles[:jackson] == pw)
+            entry = true
+        else
+            system ("clear")
+            puts ("\nInvalid login ID or password, please try again.")
+        end
+    end
+
+@username = id
+system("clear")
+
+
+end
+
+
+
+login_check
 user = Login.new (@username)
 user.menu_screen

@@ -13,10 +13,19 @@ class Login
 
         @productivity_rating = []
 
-        @focus_tips =  ['a', 'b', 'c']
+        @focus_tips =  [
+            'Break up your day with some time outside! Fresh air and sunlight are imporant.',
+             'Try taking a few breaks from work throughout the day to do something you really enjoy.', 
+             'Remember, sleep is very important for proper brain function. A regular sleeping pattern is important!',
+            ]
 
         @logs = []
 
+    end
+
+    def sleep_clear
+        sleep (2)
+        system ("clear")
     end
 
     def menu_screen
@@ -34,20 +43,26 @@ class Login
             choice = gets.chomp.downcase
 
             if choice == "1" || choice == "productivity"
+                sleep_clear
                 productivity_plan
                 choice = true
 
             elsif choice == "2" || choice == "help"
+                sleep_clear
                 helpful_hints
                 choice = true
             elsif choice == "3" || choice == "diary"
+                sleep_clear
                 diary_log
                 choice = true    
             elsif choice == "4" || choice == "exit"
                 "Thanks for dropping by!"
                 exit
             else
+                sleep_clear
                 puts "Please choose a valid option from the list."
+                sleep_clear
+                menu_screen
             end
         end
     end
@@ -61,25 +76,40 @@ class Login
         puts "How many hours of your day do you want to spend doing things you consider productive?"
 
         while !time_frame
-            time = gets.chomp.to_i
 
-            if time >0 and time <16
-                valid_level = true
-                puts "Good luck today!"
-                sleep (1)
+            time = gets.chomp
+            if time.scan(/\D/).empty?
 
-            elsif time>=16
-                system("clear")
-                puts "\n\n We reccomend an average of 8 hours of sleep to ensure maximum productivity.\n Please reconsider how much time you want to spend being productive today."
-                sleep (2)
-                productivity_plan
-            else 
-                system("clear")
-                puts "Using numbers, please indicate how many hours of the day you want to spend being productive."
+                time = time.to_i
+
+                if time >0 and time <16
+                    time_frame = true
+                    puts "Good luck today!"
+                    sleep_clear
+
+                elsif time>=16 and time <=24
+                    system("clear")
+                    puts "\n\n We reccomend an average of 8 hours of sleep to ensure maximum productivity.\n Please reconsider how much time you want to spend being productive today."
+                    sleep (4)
+                    productivity_plan
+
+                elsif time >24
+                    system ("clear")
+                    puts "There just arent enough hours in a day are there?"
+                    sleep_clear
+                    productivity_plan
+                else 
+                    sleep_clear
+                    puts "Using numbers, please indicate how many hours of the day you want to spend being productive."
+                    sleep_clear
+                    productivity_plan
+                end
             end
 
             @productivity_rating.push(time)
             
+
+            ##
             if @productivity_rating.length == 1
                 menu_screen
 
@@ -95,29 +125,28 @@ class Login
 
     #BROKEN PRODUCTIVITY CHECKER 
 
-    # def productivity_checker(time)
+    def productivity_checker(productivity_rating)
 
-    #     if time[-1] < time[-2]
-    #         puts "Not quite what you wanted to achieve today but thats ok!"
-    #         puts "\n\n#{focus_tips[random.rand(1..@focus_tips.length)]}"
-    #         menu_screen
-    #     elsif time[-1] == time[-2]
-    #         puts "Well Done!"
-    #         menu_screen
-    #     else 
-    #         puts "Test3"
-    #         menu_screen
-    #     end
-    # end
-    #
+        if productivity_rating[1] > productivity_rating [0]
+            puts "Not quite what you wanted to achieve today but thats ok!"
+            random_hint
+        elsif time[-1] == time[-2]
+            puts "Well Done!"
+            menu_screen
+        else 
+            puts "Test3"
+            menu_screen
+        end
+    end
+   
+    # 
 
     def random_hint
 
         random = Random.new
 
         puts "\n#{focus_tips[random.rand(1..@focus_tips.length)]}"
-        sleep(2)
-        system("clear")
+        sleep_clear
         menu_screen
     end
 
@@ -139,8 +168,7 @@ class Login
 
             @logs.push(new_entry)
             puts "\n Entry successful."
-            sleep(1)
-            system("clear")
+            sleep_clear
 
         elsif(diary_choice == "2")
                 if(logs == [])
@@ -162,7 +190,7 @@ class Login
        
         else
             puts "Please choose an option from the list"
-            sleep(1)
+            sleep_clear
         end
         
         sleep(0.5)

@@ -14,9 +14,16 @@ class Login
         @productivity_rating = []
 
         @focus_tips =  [
-            'Break up your day with some time outside! Fresh air and sunlight are imporant.',
-             'Try taking a few breaks from work throughout the day to do something you really enjoy.', 
-             'Remember, sleep is very important for proper brain function. A regular sleeping pattern is important!',
+            'Try cleaning up the space you work with. A cluttered space leads to a cluttered mind.',
+            'Try taking regular breaks throughout the day to break up the time.',
+            'Keep a diary of your thoughts and ideas for later reference. Focus on the present.',
+            'Eliminate some of the distractions in your workspace.',
+            'Plan the day ahead of you!',
+            "Some days are just better than others, don't beat yourself up!",
+            'Create systems that work for you, build these into habits and you will see immense change!',
+            'Break up your day with some time outside! Fresh air and sunlight when possible are imporant.',
+            'Try taking a few breaks from work throughout the day to do something you really enjoy.', 
+            'Remember, sleep is very important for proper brain function. A regular sleeping pattern is key to success!'
             ]
 
         @logs = []
@@ -34,11 +41,7 @@ class Login
 
         while !choice
 
-            puts "Hello #{@username}. Welcome to productively, please pick from the list below to begin.\n"
-            puts "1.Productivity tracker\n"
-            puts "2.Helpful hints\n"
-            puts "3.Diary"
-            puts "4.Exit Program\n"
+            puts "Hello #{@username}. Welcome to productively. Enter a number to pick from the list below to begin.\n1.Productivity tracker\n2.Helpful hints\n3.Diary\n4.Exit Program\n"
             
             choice = gets.chomp.downcase
 
@@ -48,11 +51,11 @@ class Login
                 
 
             elsif choice == "2" || choice == "help"
-                sleep_clear
+                system("clear")
                 helpful_hints
              
             elsif choice == "3" || choice == "diary"
-                sleep_clear
+                system("clear")
                 diary_log
                
             elsif choice == "4" || choice == "exit"
@@ -119,19 +122,25 @@ class Login
 
             @productivity_rating.push(time2)
 
+            puts "Your goal for this session was #{@productivity_rating[0]}"
+
                 if @productivity_rating[1] > @productivity_rating[0]
                     puts "Well done, you exceeded your goal for today! Keep up the good work, but dont go too hard or else you may burn out!"
+                    sleep(2)
                     sleep_clear
                     @productivity_rating.clear
                     menu_screen
                 elsif  @productivity_rating[1] == @productivity_rating[0]
                     puts "Good job, you hit your target for today!"
+                    sleep(2)
                     sleep_clear
                     @productivity_rating.clear
                     menu_screen
                 else
                     puts "You didnt hit your productivity goal for today. Take this tip for next time."
-                    sleep_clear
+                    random_hint
+                    sleep(10)
+                    system("clear")
                     @productivity_rating.clear
                     menu_screen
                 end
@@ -156,15 +165,12 @@ class Login
                 sleep_clear
                 helpful_hints
             elsif (hints_choice == "2")
-                puts random_hint
+                puts focus_tips
                 sleep_clear
                 helpful_hints
             elsif (hints_choice == "3")
-                sleep_clear
+                system("clear")
                 menu_screen
-            # puts focus_tips
-            # sleep(2)
-            # menu_screen
             end
 
 
@@ -175,14 +181,13 @@ class Login
 
         random = Random.new
 
-        puts "\n#{random.focus_tips[random.rand(1..@focus_tips.length)]}"
-        sleep_clear
-        menu_screen
+        puts "\n#{focus_tips[random.rand(1..@focus_tips.length)]}"
+        
     end
 
     def diary_log
 
-        puts "\nWelcome to your personal diary space. \nWould you like to view past dairies or write a new one?
+        puts "Welcome to your personal diary space. \nWould you like to view past dairies or write a new one?
         \n 1. Write new entry  \n 2. View old entries \n 3. Back to main menu. "
 
         diary_choice = gets.chomp
@@ -196,13 +201,14 @@ class Login
             new_entry = timestamp.to_s + " " + new_entry
 
             @logs.push(new_entry)
-            puts "\n Entry successful."
+            puts "\nEntry successful."
             sleep_clear
 
         elsif(diary_choice == "2" || diary_choice == "view")
                 if(logs == [])
                     system("clear")
-                    puts "\n There are no previous entries."
+                    puts "There are no previous entries."
+                    sleep_clear
                 else
                      system("clear")
     
@@ -221,8 +227,7 @@ class Login
             puts "Please choose an option from the list"
             sleep_clear
         end
-        
-        sleep(0.5)
+
         diary_log
     end
 

@@ -1,0 +1,95 @@
+commit db62cc1f41f1e667dbdf12336d3a899b52c63ad9
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Sun Oct 4 16:56:31 2020 +1100
+
+    Initial push to github
+
+commit cb1bda3b459c2806ca87192b34039442c0baefb9
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Sun Oct 4 16:51:54 2020 +1100
+
+    Initial push to github
+
+commit 14cd8c41158da44a19f5cef996f2a2dffec2b800
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Sun Oct 4 15:45:13 2020 +1100
+
+    Added initial goal to 2nd productivity check screen for users reference and changed some wait times for better viewing experience
+
+commit 8370ce88ce78782eb8d87644dbadd0c6b4bf8c96
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Sun Oct 4 14:31:30 2020 +1100
+
+    re-wrote productivity tracker section to include the value check and alternate screen for second entries. Also made small factoring changes
+
+commit 268bfa2498d5b62103515e1c034956ae8a53a10b
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Sun Oct 4 13:42:09 2020 +1100
+
+    created frame for hints section
+
+commit 286b57e7969df4e377df47764274fe13b62224b9
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Sun Oct 4 12:14:01 2020 +1100
+
+    added Sleep_clear for DRY, added MD and files
+
+commit c4199a6d6cf4c388b6813f380dceeaec64310a5a
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Sat Oct 3 15:27:14 2020 +1000
+
+    added login screen and 1st profile
+
+commit 367fbfbb262b1da5724006428be30c7c77b27ffa
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Fri Oct 2 18:53:39 2020 +1000
+
+    rearranged diary section and finished it
+
+commit 5ea9b39a44babdafa38bd6b8359558ec4d044f68
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Fri Oct 2 18:44:06 2020 +1000
+
+    added beginning of diary entry system and diary viewing
+
+commit 8d20d237b4d0280058986232d54a6090814791b7
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Fri Oct 2 13:14:58 2020 +1000
+
+    commented out broken productivity checker for now
+
+commit 8024859a7f357547d9930f9117558f888ebb9ed6
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Fri Oct 2 13:13:14 2020 +1000
+
+    made spec file for later use, added random hint generator
+
+commit 4ab11efabf24210cd9b1627a30fa6fa498b0fa1d
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Mon Sep 28 11:55:22 2020 +1000
+
+    more text prompts for choices, added frame for menu options and expanded on first option
+
+commit 056ec44d093057171d352ce162618523dc6408eb
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Sun Sep 27 20:01:19 2020 +1000
+
+    added basic functionality of productivity planner and store of input, added text to options
+
+commit 0eef932a459ceabaf102f2f056daa59611726e3a
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Sat Sep 26 12:26:59 2020 +1000
+
+    Created frame for home screen and first test for user choice
+
+commit 1f21862621d621f9434a4a5a8b271e9c2291252f
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Sat Sep 26 12:02:11 2020 +1000
+
+    Created class and initializer with attributes and access to them
+
+commit e5c02a07ffdbc9ec5d194076071e3d6f3d120688
+Author: jacksonchaffey <jacksonchaffey@gmail.com>
+Date:   Sat Sep 26 12:01:53 2020 +1000
+
+    Created class and initializer with attributes and access to them

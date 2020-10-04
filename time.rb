@@ -177,7 +177,7 @@ class Appframe
 
 
     end
-    #
+    ##
     
     def random_hint
 

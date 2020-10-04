@@ -180,6 +180,7 @@ class Appframe
     
     
     def random_hint
+        ##test
 
         random = Random.new
 

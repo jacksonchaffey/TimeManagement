@@ -1,6 +1,6 @@
 
 
-class Login
+class Appframe
 
     attr_accessor :productivity_rating, :focus_tips, :logs
     
@@ -41,7 +41,7 @@ class Login
 
         while !choice
 
-            puts "Hello #{@username}. Welcome to productively. Enter a number to pick from the list below to begin.\n1.Productivity tracker\n2.Helpful hints\n3.Diary\n4.Exit Program\n"
+            puts "Hello #{@username}. Welcome to your future. Enter a number to pick from the list below to begin.\n1.Productivity tracker\n2.Helpful hints\n3.Diary\n4.Exit Program\n"
             
             choice = gets.chomp.downcase
 
@@ -59,7 +59,9 @@ class Login
                 diary_log
                
             elsif choice == "4" || choice == "exit"
-                "Thanks for dropping by!"
+                system("clear")
+                puts"Thanks for dropping by!"
+                sleep_clear
                 exit
             else
                 system("clear")
@@ -156,7 +158,7 @@ class Login
 
     def helpful_hints
 
-           puts "Welcome to the helpful hints section where we provide tips to help you be productive!\n Would you like a single random tip or would you like to view the entire list?\n1.Random tip.\n2.View list.\n3.Back to main menu."
+           puts "Welcome to the helpful hints section where we provide tips to help you be productive!\n Would you like a random tip or would you like to view the entire list?\n1.Random tip.\n2.View list.\n3.Back to main menu."
 
            hints_choice = gets.chomp
            
@@ -271,5 +273,5 @@ end
 
 
 login_check
-user = Login.new (@username)
+user = Appframe.new (@username)
 user.menu_screen

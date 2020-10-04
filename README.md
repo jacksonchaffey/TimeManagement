@@ -6,7 +6,7 @@
 
 1. Download the current version of Ruby (2.7.0 at time of writing) [here](https://www.ruby-lang.org/en/downloads/).
 
-2. Download time.rb from the repo.
+2. Download time.rb from the github repo [here](https://github.com/jacksonchaffey/TimeManagement).
 
 3. In the terminal, navigate to the directory you have stored this download in using the `cd *your directory* ` command.
 

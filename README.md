@@ -28,7 +28,7 @@ Each menu screen of the app will have explicit instruction for how to access eac
 
 ##### Control Flow
 
-![Control Flow Diagram](imgs/controlflow.png)
+![Control Flow Diagram](https://github.com/jacksonchaffey/TimeManagement/blob/master/img/ControlFlow.png)
 
 
 

@@ -28,7 +28,7 @@ Each menu screen of the app will have explicit instruction for how to access eac
 
 ##### Control Flow
 
-![Control Flow Diagram](controlflow.png)
+![Control Flow Diagram](imgs/controlflow.png)
 
 
 

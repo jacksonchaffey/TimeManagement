@@ -8,10 +8,16 @@ class Appframe
 
 
     def initialize(username)
-
+        
+        #Assigns name from login to app
+        
         @username = username
 
+        #Initializes array for us in main feature
+
         @productivity_rating = []
+
+        #Array of tips for use during runtime
 
         @focus_tips =  [
             'Try cleaning up the space you work with. A cluttered space leads to a cluttered mind.',
@@ -26,23 +32,26 @@ class Appframe
             'Remember, sleep is very important for proper brain function. A regular sleeping pattern is key to success!'
             ]
 
+        #Empty array for diary section
+
         @logs = []
 
     end
 
     def sleep_clear
+        #Little method for reduced clutter - regarding clean view
         sleep (2)
         system ("clear")
     end
-
     def invalid_choice
+        #Another method for reduced clutter - regarding invalid inputs
         system("clear")
         puts "Invalid entry. Please use numbers to indicate your choices unless instructed otherwise."
         sleep_clear
     end
 
     def menu_screen
-
+        #Main menu to let users access features.
         choice = false
 
         while !choice
@@ -54,7 +63,6 @@ class Appframe
             if choice == "1" || choice == "productivity"
                 system("clear")
                 productivity_plan
-                
 
             elsif choice == "2" || choice == "help"
                 system("clear")
@@ -77,11 +85,12 @@ class Appframe
     end
 
     def productivity_plan
-        
+        #Main feature 
+
         system("clear")
     
         time_frame = false
-
+        #If the array is empty, asks the first question.
         if @productivity_rating.length == 0
             puts "How many hours of your day do you want to spend doing things you consider productive?"
 
@@ -89,6 +98,7 @@ class Appframe
 
                time = gets.chomp.to_i
 
+                    #Evaluate integer value to give feedback, following sections check if input is valid and reasonable.
                     if time >0 and time <16
                        time_frame = true
                         puts "Good luck today!"
@@ -111,20 +121,21 @@ class Appframe
                         productivity_plan
                     end
         
-
+                 #Takes integer input and stores in the empty array  
                 @productivity_rating.push(time)
                 menu_screen
             end  
-       
+
+        #If the array is not empty, asks the second question.
         elsif @productivity_rating.length == 1
             puts "How many hours did you manage to spend being productive today?"
-            
+            #Store second value in array for comparison
             time2 = gets.chomp.to_i
 
             @productivity_rating.push(time2)
 
             puts "Your goal for this session was #{@productivity_rating[0]}"
-
+                #Provides feedback on users' set goal and clears array for next use.
                 if @productivity_rating[1] > @productivity_rating[0]
                     puts "Well done, you exceeded your goal for today! Keep up the good work, but dont go too hard or else you may burn out!"
                     sleep(2)
@@ -158,7 +169,7 @@ class Appframe
     end
 
     def helpful_hints
-
+        #Access to the hints that should help productivity.
            puts "Welcome to the helpful hints section where we provide tips to help you be productive!\n Would you like a random tip or would you like to view the entire list?\n1.Random tip.\n2.View list.\n3.Back to main menu."
 
            hints_choice = gets.chomp
@@ -186,7 +197,7 @@ class Appframe
     
     
     def random_hint
-        ##test
+        ##Random hint accessor for use in main feature and hint section.
 
         random = Random.new
 
@@ -195,13 +206,14 @@ class Appframe
     end
 
     def diary_log
-
+        #Diary space for user to log daily activities.
         puts "Welcome to your personal diary space. \nWould you like to view past dairies or write a new one?
         \n 1. Write new entry  \n 2. View old entries \n 3. Back to main menu. "
 
         diary_choice = gets.chomp
         
         if (diary_choice =="1" || diary_choice == "new")
+            #Takes date and time and user input and logs in the empty array initialized.
             system("clear")
             puts("Begin your diary entry..\n (Write in whatever format you would like to.\n)")
             new_entry = gets.chomp()
@@ -214,13 +226,14 @@ class Appframe
             sleep_clear
 
         elsif(diary_choice == "2" || diary_choice == "view")
+            #If array is empty when chosen, explains this to user. If array populated, displays contents.
                 if(logs == [])
                     system("clear")
                     puts "There are no previous entries."
                     sleep_clear
                 else
                      system("clear")
-    
+                    #Uses a loop to show diary entries in order.
                     i = 0
                     while i < @logs.length
                         puts "#{logs[i]}\n\n\n\n"
@@ -245,7 +258,7 @@ class Appframe
 end 
 
 def login_check
-
+    #Login section which locks the app from those who dont have the credentials provided in README
     profiles = 
     {
     :Jackson => "jackson123",
@@ -277,7 +290,7 @@ def login_check
     system("clear")
 end
 
-
+#Class and function calls.
 
 login_check
 user = Appframe.new (@username)

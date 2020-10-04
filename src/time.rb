@@ -35,6 +35,12 @@ class Appframe
         system ("clear")
     end
 
+    def invalid_choice
+        system("clear")
+        puts "Invalid entry. Please use numbers to indicate your choices unless instructed otherwise."
+        sleep_clear
+    end
+
     def menu_screen
 
         choice = false
@@ -64,9 +70,7 @@ class Appframe
                 sleep_clear
                 exit
             else
-                system("clear")
-                puts "Please choose a valid option from the list."
-                sleep_clear
+                invalid_choice
                 menu_screen
             end
         end
@@ -83,10 +87,7 @@ class Appframe
 
             while !time_frame
 
-               time = gets.chomp
-                if time.scan(/\D/).empty?
-
-                    time = time.to_i
+               time = gets.chomp.to_i
 
                     if time >0 and time <16
                        time_frame = true
@@ -106,12 +107,10 @@ class Appframe
                         sleep_clear
                         productivity_plan
                     else 
-                        sleep_clear
-                        puts "Using numbers, please indicate how many hours of the day you want to spend being productive."
-                        sleep_clear
+                        invalid_choice
                         productivity_plan
                     end
-                end
+        
 
                 @productivity_rating.push(time)
                 menu_screen
@@ -138,13 +137,15 @@ class Appframe
                     sleep_clear
                     @productivity_rating.clear
                     menu_screen
-                else
+                elsif @productivity_rating[1] < @productivity_rating[0]
                     puts "You didnt hit your productivity goal for today. Take this tip for next time."
                     random_hint
                     sleep(10)
                     system("clear")
                     @productivity_rating.clear
                     menu_screen
+                else 
+                    invalid_choice
                 end
 
             
@@ -163,16 +164,21 @@ class Appframe
            hints_choice = gets.chomp
            
             if (hints_choice == "1")
+                system("clear")
                 random_hint
                 sleep_clear
                 helpful_hints
             elsif (hints_choice == "2")
-                puts focus_tips
-                sleep_clear
+                system("clear")
+                puts focus_tips 
+                puts "\n\n"
                 helpful_hints
             elsif (hints_choice == "3")
                 system("clear")
                 menu_screen
+            else
+                invalid_choice
+                helpful_hints
             end
 
 
@@ -197,7 +203,7 @@ class Appframe
         
         if (diary_choice =="1" || diary_choice == "new")
             system("clear")
-            puts("Begin your diary entry..\n")
+            puts("Begin your diary entry..\n (Write in whatever format you would like to.\n)")
             new_entry = gets.chomp()
             timestamp = Time.now
 
@@ -227,8 +233,8 @@ class Appframe
             menu_screen
        
         else
-            puts "Please choose an option from the list"
-            sleep_clear
+           invalid_choice
+           diary_log
         end
 
         diary_log
@@ -249,9 +255,9 @@ def login_check
     entry = false
 
         while (!entry)
-         puts ( "Hello! Please enter your username")
+         puts ( "Hello! Please enter your username: (Hint: Check the README)")
            id = gets.chomp
-         puts ( "Please enter your password")
+         puts ( "Please enter your password: HINT: Check the README)")
            pw = gets.chomp
     
             if (id == "admin" && profiles[:admin] == pw)

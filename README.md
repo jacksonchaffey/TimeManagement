@@ -4,7 +4,7 @@
 
 ### Instructions
 
-1. Download the current version of Ruby (2.7.0 at time of writing) [here](https://www.ruby-lang.org/en/downloads/).
+1. Download the current version of Ruby (2.7.2 at time of writing) [here](https://www.ruby-lang.org/en/downloads/).
 
 2. Download time.rb from the github repo [here](https://github.com/jacksonchaffey/TimeManagement).
 
@@ -14,9 +14,9 @@
 
 3. You will be asked to log in with a username and password. These are **admin** and **admin**.
 
-4. You are now in the menu screen. Use the numbers 1, 2, 3 and 4 to navigate the menu. (Alternatively on this menu you can use the strings 'productivity', 'help', 'diary' and 'exit' to navigate).
+4. You are now in the menu screen. Use the numbers 1, 2, 3 and 4 to navigate the menu. (Alternatively on this menu you can use the strings 'productivity', 'help', 'diary' and 'exit' to navigate. This is just a little test feature and not intended for use throughout the app.).
 
-5. The majority of the app takes integers as input, please follow convention accordingly.
+5. The majority of the app takes integers as input, please follow convention accordingly unless instructed otherwise while in the app.
 
 6. To exit out of the app, navigate back to the main menu and select option 4 or 'exit'.
 
@@ -25,7 +25,7 @@
 
 People make plans to get fitter, to read more, to waste less time or to generally make changes to their lives to improve their productivity, but life gets in the way and we often lose focus on what it is we set out to do with our time. The purpose of this app is to provide an accessible solution to the very common problem of time management and priority shuffling. Along with this the app will have a section dedicated to providing a user with helpful tips to encourage and assist productivity without forcing them to detail how much of their time they want to spend doing so. Finally the app will provide a space for the user to write a kind of diary entry, intended as a place to log what they have done for the day to increase visibility of time use. The target audience for this app will be anyone who wants to provide themself with a bit of external accountability and breakdown of their time to give some reminders of how they are spending it as well as providing positive and encouraging ideas for how to do achieve their goals.
 
-To use the app a person would first find it on my Github and install the required ruby framework and gems which are detailed and explained below.
+To use the app a potential user would first need find it on my Github and install the required ruby framework explained above.
 
 ### Features
 
@@ -41,7 +41,9 @@ Diary: More of a productivity log than a standard diary, this is intended to be 
 
 ### User interaction brief
 
-Each menu screen of the app will have explicit instruction for how to access each feature at the top of the screen. The majority of the input in this app will be integers, corresponding with different lists of menu items on the screen. Each menu item will also have a simple string that may be entered that best reflects the list item (IE: When returning to the menu screen from anywhere, a user can input 'menu' as their entry to get there instead of just the corresponding integer.). However, this is intended as a backup/hidden feature  and not the main method of navigating. If invalid input is entered by the user, they are shown a screen which tells them they picked incorrectly and need to re-enter their choice before being looped back to the menu they were on.
+The menus of the app are intended to be navigated by inputting a number reflecting one of the options presented to the user. Following this there will either be a prompt on what kind of input the user should enter, or another menu -also to be navigated with numbers- to choose options from. A user that puts the wrong data-type into the input field will be met with a screen telling them exactly this. They will then be returned to the previous menu they were on and asked to select again from the available options. If no data is put in, the app will sit where it currently is and excecute no further code.
+
+The only feature of the app that has some level confustion is the productivity tracker. Its initial purpose is to ask you how long you want to be productive in a day, taking the number you enter and storing it in an array (if the app dictates the number is reasonable). The user is then returned to the main menu to explore the rest of the app. On second visit to the productivity tracker the user will be asked how they actually managed to do that day. It will then compare the values entered and give the user some feedback on their performance for the day. Following this, both pieces of entered data are discarded and the feature -if accessed again- will perform as if it were the first interaction with the user.
 
 ### Control Flow
 
@@ -49,11 +51,11 @@ Each menu screen of the app will have explicit instruction for how to access eac
 
 
 
-
-
 ### Implementation Plan
 
 The planning of this app utilised a Trello board which can be found [here.](https://trello.com/b/bs3pxkwT/time-app)
+Alternately, there is a screenshot provided below which shows the majority of the board.
+![Trello screenshot for app design](https://github.com/jacksonchaffey/TimeManagement/blob/master/img/TrelloShot.png)
 
 
 

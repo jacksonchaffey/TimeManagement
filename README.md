@@ -1,6 +1,6 @@
 #  Time management App
 
-#### By jackson Chaffey 
+#### By Jackson Chaffey 
 
 
 
@@ -34,7 +34,9 @@ Each menu screen of the app will have explicit instruction for how to access eac
 
 
 
-##### R9 
+##### Implementation Plan
+
+The planning of this app utilised a Trello board which can be found [here](!https://trello.com/b/bs3pxkwT/time-app)
 
 https://trello.com/b/bs3pxkwT/time-app
 
